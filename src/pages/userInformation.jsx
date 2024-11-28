@@ -12,7 +12,7 @@ const UserInformation = () => {
     // Fetch user data from the backend
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/user/get-all-user");
+        const response = await axios.get("https://prvbackend.onrender.com/user/get-all-user");
         setUsers(response.data);
       } catch (error) {
         console.error("Error fetching users:", error);

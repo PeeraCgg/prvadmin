@@ -17,7 +17,7 @@ const ExpenseHistory = () => {
     // ดึงข้อมูลประวัติการใช้จ่ายจาก backend
     const fetchExpenseHistory = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/user/show-expense/${userId}`);
+        const response = await axios.get(`https://prvbackend.onrender.com/user/show-expense/${userId}`);
         setExpenseHistory(response.data.data.expenses);
         setTotalAmountPerYear(response.data.data.totalAmountPerYear);
         setPrvType(response.data.data.prvType);
