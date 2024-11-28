@@ -26,14 +26,20 @@ const UserInformation = () => {
     setDropdownVisible((prev) => (prev === userId ? null : userId));
   };
 
-  // Filter users by search term
-  const filteredUsers = users.filter(
-    (user) =>
-      user.firstname.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      user.lastname.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      user.mobile.includes(searchTerm) ||
-      user.email.toLowerCase().includes(searchTerm.toLowerCase())
+// Filter users by search term
+const filteredUsers = users.filter((user) => {
+  const firstName = user.firstname?.toLowerCase() || '';
+  const lastName = user.lastname?.toLowerCase() || '';
+  const email = user.email?.toLowerCase() || '';
+  const mobile = user.mobile || '';
+
+  return (
+    firstName.includes(searchTerm.toLowerCase()) ||
+    lastName.includes(searchTerm.toLowerCase()) ||
+    mobile.includes(searchTerm) ||
+    email.includes(searchTerm.toLowerCase())
   );
+});
 
   // Format date to y/m/d
   const formatDate = (date) => {
